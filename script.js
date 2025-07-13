@@ -972,39 +972,6 @@ function setupSpotDifferenceGame(data) {
 
   image.onload = () => {
     console.log("Image loaded successfully")
-
-    // Add coordinate tracking for debugging
-    const coordinateDisplay = document.createElement("div")
-    coordinateDisplay.id = "coordinate-display"
-    coordinateDisplay.style.cssText = `
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #00ffff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-family: 'Orbitron', monospace;
-  font-size: 12px;
-  pointer-events: none;
-  z-index: 1000;
-  border: 1px solid rgba(0, 255, 255, 0.3);
-`
-    coordinateDisplay.textContent = "Hover over image to see coordinates"
-    document.getElementById("spot-difference-game").appendChild(coordinateDisplay)
-
-    // Add mouse tracking to image
-    image.onmousemove = (e) => {
-      const rect = image.getBoundingClientRect()
-      const x = Math.round(e.clientX - rect.left)
-      const y = Math.round(e.clientY - rect.top)
-      coordinateDisplay.textContent = `Coordinates: (${x}, ${y})`
-      coordinateDisplay.style.display = "block"
-    }
-
-    image.onmouseleave = () => {
-      coordinateDisplay.style.display = "none"
-    }
   }
 
   // Add click handler to image
